@@ -1,6 +1,8 @@
 # Skill File Index
 
-* "SKILL.md": "Main entry point. Contains scope guardrails, entry/exit criteria, transformation workflow overview with phase routing, test failure handling, and documentation output mapping. Read this first."
+* "SKILL.md": "Main entry point (Agent Skills format). Contains scope guardrails, entry/exit criteria, transformation workflow overview with phase routing, test failure handling, and documentation output mapping. Read this first."
+
+* "POWER.md": "Main entry point (Kiro format). Same content as SKILL.md with Kiro-specific frontmatter (displayName, keywords, author)."
 
 * "phases/phase1-static-analysis.md": "Detailed steps for Phase 1: project structure analysis, native library validation (bundled and runtime-extracted .so files), tiered FAIL/WARN/PASS policy, dependency ARM64 compatibility analysis including transitive dependencies, architecture-specific code detection, and Java version check."
 
