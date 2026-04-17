@@ -1,6 +1,9 @@
 ---
 name: java-x86-to-graviton
 description: Validates Java application compatibility with AWS Graviton (ARM64) architecture by analyzing native libraries, dependencies (including transitive), and architecture-specific code. Performs static analysis, applies ARM64-required dependency updates, configures Graviton JVM flags, and validates builds on ARM64. Use when migrating Java workloads from x86 to Graviton, validating ARM64 readiness, or running AWS Transform Custom java-x86-to-graviton transformations.
+metadata:
+  author: jcwolfaws
+  version: "1.0"
 ---
 
 # Java Application AWS Graviton (ARM64) Compatibility Validation
