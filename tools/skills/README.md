@@ -29,27 +29,110 @@ Both files contain the same instructions — only the frontmatter differs. Your 
 
 ### Kiro
 
-Paste the GitHub folder URL into Kiro's power installer:
+Open the **Agent Steering & Skills** panel, click **+** > **Import a skill** > **GitHub**, and paste:
 
 ```
 https://github.com/jcwolfaws/aws-graviton-getting-started/tree/main/tools/skills/languages/java-x86-to-graviton
 ```
 
-### Claude Code, Cursor, Codex, and other Agent Skills platforms
+### Cursor
 
-Copy the skill folder into your project:
+Open **Settings** (`Cmd+Shift+J` / `Ctrl+Shift+J`) > **Rules** > **Add Rule** > **Remote Rule (GitHub)** and paste:
 
-```bash
-cp -r tools/skills/languages/java-x86-to-graviton/ /path/to/your/project/.skills/java-x86-to-graviton/
+```
+https://github.com/jcwolfaws/aws-graviton-getting-started/tree/main/tools/skills/languages/java-x86-to-graviton
 ```
 
-Your AI coding assistant will detect the `SKILL.md` and follow the instructions when triggered.
+### Claude Code
 
-### Direct reference
+```bash
+git clone --filter=blob:none --sparse https://github.com/jcwolfaws/aws-graviton-getting-started.git /tmp/graviton-skill && \
+  cd /tmp/graviton-skill && \
+  git sparse-checkout set tools/skills/languages/java-x86-to-graviton && \
+  cp -r tools/skills/languages/java-x86-to-graviton ~/.claude/skills/ && \
+  cd - && rm -rf /tmp/graviton-skill
+```
 
-You can also point your AI assistant to the skill without installing:
+### GitHub Copilot / VS Code
 
-> Analyze this Java project for Graviton migration using the skill at tools/skills/languages/java-x86-to-graviton/SKILL.md
+```bash
+git clone --filter=blob:none --sparse https://github.com/jcwolfaws/aws-graviton-getting-started.git /tmp/graviton-skill && \
+  cd /tmp/graviton-skill && \
+  git sparse-checkout set tools/skills/languages/java-x86-to-graviton && \
+  mkdir -p .github/skills && \
+  cp -r tools/skills/languages/java-x86-to-graviton .github/skills/ && \
+  cd - && rm -rf /tmp/graviton-skill
+```
+
+### OpenAI Codex
+
+```bash
+git clone --filter=blob:none --sparse https://github.com/jcwolfaws/aws-graviton-getting-started.git /tmp/graviton-skill && \
+  cd /tmp/graviton-skill && \
+  git sparse-checkout set tools/skills/languages/java-x86-to-graviton && \
+  mkdir -p ~/.codex/skills && \
+  cp -r tools/skills/languages/java-x86-to-graviton ~/.codex/skills/ && \
+  cd - && rm -rf /tmp/graviton-skill
+```
+
+### Windsurf
+
+```bash
+git clone --filter=blob:none --sparse https://github.com/jcwolfaws/aws-graviton-getting-started.git /tmp/graviton-skill && \
+  cd /tmp/graviton-skill && \
+  git sparse-checkout set tools/skills/languages/java-x86-to-graviton && \
+  mkdir -p .windsurf/skills && \
+  cp -r tools/skills/languages/java-x86-to-graviton .windsurf/skills/ && \
+  cd - && rm -rf /tmp/graviton-skill
+```
+
+### Gemini CLI
+
+```bash
+git clone --filter=blob:none --sparse https://github.com/jcwolfaws/aws-graviton-getting-started.git /tmp/graviton-skill && \
+  cd /tmp/graviton-skill && \
+  git sparse-checkout set tools/skills/languages/java-x86-to-graviton && \
+  mkdir -p ~/.gemini/skills && \
+  cp -r tools/skills/languages/java-x86-to-graviton ~/.gemini/skills/ && \
+  cd - && rm -rf /tmp/graviton-skill
+```
+
+### Roo Code
+
+```bash
+git clone --filter=blob:none --sparse https://github.com/jcwolfaws/aws-graviton-getting-started.git /tmp/graviton-skill && \
+  cd /tmp/graviton-skill && \
+  git sparse-checkout set tools/skills/languages/java-x86-to-graviton && \
+  mkdir -p .roo/skills && \
+  cp -r tools/skills/languages/java-x86-to-graviton .roo/skills/ && \
+  cd - && rm -rf /tmp/graviton-skill
+```
+
+### Goose
+
+```bash
+git clone --filter=blob:none --sparse https://github.com/jcwolfaws/aws-graviton-getting-started.git /tmp/graviton-skill && \
+  cd /tmp/graviton-skill && \
+  git sparse-checkout set tools/skills/languages/java-x86-to-graviton && \
+  mkdir -p ~/.config/goose/skills && \
+  cp -r tools/skills/languages/java-x86-to-graviton ~/.config/goose/skills/ && \
+  cd - && rm -rf /tmp/graviton-skill
+```
+
+### Any platform (project-level)
+
+Copy the skill folder into the cross-platform standard path:
+
+```bash
+git clone --filter=blob:none --sparse https://github.com/jcwolfaws/aws-graviton-getting-started.git /tmp/graviton-skill && \
+  cd /tmp/graviton-skill && \
+  git sparse-checkout set tools/skills/languages/java-x86-to-graviton && \
+  mkdir -p .agents/skills && \
+  cp -r tools/skills/languages/java-x86-to-graviton .agents/skills/ && \
+  cd - && rm -rf /tmp/graviton-skill
+```
+
+The `.agents/skills/` path is supported by all Agent Skills-compatible platforms.
 
 ## Skill Folder Structure
 
