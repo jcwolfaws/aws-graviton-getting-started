@@ -3,16 +3,9 @@ name: graviton-{{LANGUAGE}}-optimization
 description: >
   Identifies and resolves {{LANGUAGE}} compatibility and performance issues
   when migrating workloads from x86_64 to AWS Graviton (ARM64/AArch64) processors.
-triggers:
-  - graviton {{LANGUAGE}}
-  - {{LANGUAGE}} arm64
-  - {{LANGUAGE}} aarch64 migration
-tags:
-  - graviton
-  - arm64
-  - {{LANGUAGE}}
-  - migration
-  - performance
+metadata:
+  author: "{{AUTHOR}}"
+  version: "1.0"
 ---
 
 # Graviton {{LANGUAGE_DISPLAY}} Optimization
@@ -72,8 +65,8 @@ Reference: https://github.com/aws/aws-graviton-getting-started
 ### 6. Generate migration report
 
 Produce a summary with:
-- ✅ Compatible dependencies
-- ⚠️ Dependencies requiring updates
-- ❌ Blockers (no ARM64 support)
+- Compatible dependencies
+- Dependencies requiring updates
+- Blockers (no ARM64 support)
 - Recommended Graviton instance type (c7g, m7g, r7g, etc.)
 - Estimated performance delta (if benchmarks were run)
