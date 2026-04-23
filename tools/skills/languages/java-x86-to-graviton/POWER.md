@@ -3,7 +3,7 @@ name: java-x86-to-graviton
 displayName: "Java x86 to Graviton Migration"
 description: "Validates Java application compatibility with AWS Graviton (ARM64) architecture by analyzing native libraries, dependencies (including transitive), and architecture-specific code. Performs static analysis, applies ARM64-required dependency updates, configures Graviton JVM flags, and validates builds on ARM64."
 keywords: ["java", "graviton", "arm64", "aarch64", "migration", "jvm", "native libraries", "dependencies"]
-author: "jcwolfaws"
+author: "AWS"
 ---
 
 # Java Application AWS Graviton (ARM64) Compatibility Validation
