@@ -33,6 +33,7 @@ This repository provides technical guidance for users and developers using [Amaz
 * [AWS Managed Services available on Graviton](managed_services.md)
 * [Graviton Performance Runbook](perfrunbook/README.md)
 * [Assembly Optimization Guide for Graviton Arm64 Processors](arm64-assembly-optimization.md)
+* [Tools and Agent Skills](tools/README.md)
 * [Additional resources](#additional-resources)
 * [How To Resources](howtoresources.md)
 * [Blog Posts](#blog-posts)
@@ -213,6 +214,15 @@ NOTE: Linux versions of OpenJDK and Amazon Corretto 17+ dynamically link to zlib
 
 ## Other
  * [Lower Latency and Costs Using AWS Graviton2–Based Instances with Sprinklr](https://aws.amazon.com/solutions/case-studies/sprinklr-case-study/)
+
+# Tools and Agent Skills
+
+[Agent Skills](tools/skills/README.md) are portable instruction packages that AI coding assistants can follow to perform Graviton migrations. They work across 20+ platforms including Claude Code, Kiro, Cursor, Codex, Windsurf, Gemini CLI, and GitHub Copilot.
+
+Available skills:
+ * [Java x86-to-Graviton migration](tools/skills/languages/java-x86-to-graviton/) - dependency audit, native library validation, JVM optimization, ARM64 build validation
+
+See [tools/skills/README.md](tools/skills/README.md) for installation instructions and the full catalogue.
 
 # Additional resources
 
