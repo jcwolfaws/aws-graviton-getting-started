@@ -175,7 +175,7 @@ These are **almost always** ARM64-compatible without updates:
 
 | Dependency | Old → New | ARM64 Issue | Evidence |
 |------------|-----------|-------------|----------|
-| protoc | 3.3.0 → 3.21.0 | Missing osx-aarch_64 artifact | Build log shows "Could not find artifact" |
+| protoc | 3.3.0 → 3.21.0 | Missing linux-aarch_64 and osx-aarch_64 artifacts | Build log shows "Could not find artifact" |
 | JNA | 5.6.0 → 5.8.0 | Missing ARM64 .so files | Runtime UnsatisfiedLinkError on ARM64 |
 ```
 

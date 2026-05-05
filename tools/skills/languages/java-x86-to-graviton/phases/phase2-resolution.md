@@ -13,8 +13,8 @@ For each x86-only .so identified in Phase 1:
 # Cross-compilation
 CC=aarch64-linux-gnu-gcc make
 
-# Or on ARM64 machine
-make CFLAGS="-march=armv8-a"
+# Or on ARM64 machine (distro defaults are correct for Graviton)
+make
 
 # Verify
 file libname.so  # Should show "ARM aarch64"
@@ -162,46 +162,20 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 
 Key: Builder stage uses `$BUILDPLATFORM`, runtime stage uses `$TARGETPLATFORM`. If original has no `--platform` annotations, add them. Host-based deployments skip Docker steps.
 
-## 2.5 Graviton-Specific JVM Optimizations
+## 2.5 Graviton-Specific JVM Recommendations
 
 > **Output: `graviton-validation/05-jvm-configuration.md`**
 
-Apply version-gated JVM flags. Not all flags are valid across JDK versions.
+Do NOT apply JVM flags automatically. Graviton runs well with default JVM settings. Document recommendations in the report for the team to evaluate during performance testing.
 
-**JDK 11:**
-```bash
--XX:-TieredCompilation
--XX:ReservedCodeCacheSize=64M
--XX:InitialCodeCacheSize=64M
--XX:+UnlockDiagnosticVMOptions -XX:+UseAESCTRIntrinsics  # crypto workloads
--Xss1m  # multi-threaded apps
-```
+**JDK 21+:** Most Graviton optimizations are already enabled by default (AES-CTR intrinsics, improved tiered compilation). No flags to recommend unless performance testing shows a specific issue.
 
-**JDK 17:**
-```bash
--XX:CICompilerCount=2
--XX:CompilationMode=high-only
--XX:-TieredCompilation
--XX:ReservedCodeCacheSize=64M
--XX:InitialCodeCacheSize=64M
--XX:+UnlockDiagnosticVMOptions -XX:+UseAESCTRIntrinsics  # crypto workloads
--Xss1m  # multi-threaded apps
-```
+**JDK 11-17:** Document the following as recommendations to try if performance testing shows a regression:
 
-**JDK 21+:**
-```bash
--XX:-TieredCompilation
--XX:ReservedCodeCacheSize=64M
--XX:InitialCodeCacheSize=64M
--Xss1m  # multi-threaded apps
-# UseAESCTRIntrinsics enabled by default in 21+
-# CompilationMode removed in some 21+ builds - test before applying
-```
+| Flag | Workload type | Notes |
+|------|---------------|-------|
+| `-XX:+UnlockDiagnosticVMOptions -XX:+UseAESCTRIntrinsics` | Crypto-heavy (TLS termination, encryption) | Enabled by default in 21+ |
+| `-XX:-TieredCompilation` | Long-running services (not latency-sensitive startup) | Trades startup time for steady-state throughput |
+| `-XX:ReservedCodeCacheSize=64M` | Large apps with many classes | Only if code cache pressure observed |
 
-**Always validate flags:**
-```bash
-java <flags> -version
-# Must exit without error
-```
-
-Document flag changes, expected impact, and create profiles for different workload types.
+The report should note the project's JDK version and which recommendations (if any) are relevant to its workload type.

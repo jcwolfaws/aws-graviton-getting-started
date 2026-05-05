@@ -68,5 +68,5 @@ Produce a summary with:
 - Compatible dependencies
 - Dependencies requiring updates
 - Blockers (no ARM64 support)
-- Recommended Graviton instance type (c7g, m7g, r7g, etc.)
+- Recommended Graviton instance type (c8g, m8g, r8g, etc.)
 - Estimated performance delta (if benchmarks were run)
