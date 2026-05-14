@@ -58,6 +58,12 @@
 * [Assembly Optimization Guide for Graviton Arm64 Processors](arm64-assembly-optimization.md)
 * [Profiling](Monitoring_Tools_on_Graviton.md)
 
+# Tools
+
+* [Overview](tools/README.md)
+* [Agent Skills](tools/skills/README.md)
+    * [Java x86-to-Graviton Migration](tools/skills/languages/java-x86-to-graviton/SKILL.md)
+
 -----------
 
 [How To Resources](howtoresources.md)

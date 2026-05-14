@@ -284,3 +284,7 @@ $ cd linux-*.amzn2.aarch64
 $ cd tools/perf
 $ make
 ```
+
+### Agent Skills for Java Migration
+
+To automate the x86-to-Graviton migration process using an AI coding assistant (Claude Code, Kiro, Cursor, Codex, Windsurf, and others), use the [Java x86-to-Graviton Agent Skill](tools/skills/languages/java-x86-to-graviton/). It walks an agent through dependency auditing, native library validation, JVM flag configuration, and ARM64 build validation. See [tools/skills/README.md](tools/skills/README.md) for installation instructions.
