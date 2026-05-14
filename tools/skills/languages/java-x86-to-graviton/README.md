@@ -17,7 +17,7 @@ The skill is scoped strictly to ARM64 compatibility. It will not upgrade Java ve
 Copy this folder into your Java project:
 
 ```bash
-cp -r tools/skills/languages/java/ /path/to/your/project/.skills/java-x86-to-graviton/
+cp -r tools/skills/languages/java-x86-to-graviton/ /path/to/your/project/.skills/java-x86-to-graviton/
 ```
 
 Then ask your AI assistant:
